@@ -5,7 +5,7 @@ package chat.controller;
  * @author bhos1889
  * @version 1.0 10/21/15
  */
-public class Runner 
+public class ChatRunner 
 {
 
 	public static void main(String [] args)
