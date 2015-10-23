@@ -1,5 +1,7 @@
 package chat.view;
 
+import javax.swing.JOptionPane;
+
 public class ChatView 
 {
 	
@@ -9,5 +11,8 @@ public class ChatView
 		
 		return returnedText;
 	}
-
+		public void displayBotConsole(String info)
+		{
+			System.out.println("Hello " + info);
+		}
 }

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * Base version of the 2015 Chatbot class. Only sub methods are provided. Students will complete methods as part of the project.
  * @author bhos1889
- * @version 1.0 10/21/15
+ * @version 1.1 10/23/15 Completed the lengthCHecker method. Fixed the Constructor and getter for userName
  */
 public class Chatbot 
 {
@@ -20,7 +20,7 @@ public class Chatbot
 	 */
 	public Chatbot(String userName)
 	{
-		
+		this.userName = userName;
 	}
 	
 	private void buildMemesList()
