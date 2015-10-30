@@ -22,18 +22,26 @@ public class Chatbot
 	{
 		this.memesList= new ArrayList<String>();
 		this.politicalTopicList = new ArrayList<String>();
-		
 		this.userName = userName;
 		this.content = "Just do it!";
+		
+		buildMemesList();
+		buildPoliticalTopicsList();
 	}
 	
 	private void buildMemesList()
 	{
+		this.memesList.add("cute animals");
+		this.memesList.add("doge");
+		this.memesList.add("spoderman");
+		this.memesList.add("aliens!");
+		this.memesList.add("what if I told you");
+		this.memesList.add("unhelpful high school teacher");
 		
 	}
 	
 	private void buildPoliticalTopicsList()
-	{
+	{	
 		
 	}
 	
@@ -70,7 +78,14 @@ public class Chatbot
 	 */
 	public boolean contentChecker(String currentInput)
 	{
-		return false;
+		boolean hasContent = false;
+		
+		if(currentInput.toLowerCase().contains(content.toLowerCase()))
+		{
+			hasContent = true;
+		}
+		
+		return hasContent;
 	}
 	
 	/**
@@ -92,7 +107,16 @@ public class Chatbot
 	 */
 	public boolean memeChecker(String currentInput)
 	{
-		return false;
+		boolean hasMeme = false;
+		
+		for(String meme : memesList)
+		{
+			if(currentInput.toLowerCase().contains(meme.toLowerCase()))
+			{
+				hasMeme = true;
+			}
+		}
+		return hasMeme;
 	}
 	
 	/**
@@ -101,7 +125,7 @@ public class Chatbot
 	 */
 	public String getUserName()
 	{
-		return null;
+		return content;
 	}
 	
 	/**
@@ -110,7 +134,7 @@ public class Chatbot
 	 */
 	public String getContent()
 	{
-		return null;
+		return content;
 	}
 	
 	/**
@@ -119,7 +143,7 @@ public class Chatbot
 	 */
 	public ArrayList<String> getMemesList()
 	{
-		return null;
+		return memesList;
 	}
 	
 	/**
@@ -128,7 +152,7 @@ public class Chatbot
 	 */
 	public ArrayList<String> getPoliticalTopicList()
 	{
-		return null;
+		return politicalTopicList;
 	}
 	
 	/**
