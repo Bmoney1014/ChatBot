@@ -30,7 +30,7 @@ public class ChatController
 		String conversation = myDisplay.grabInput("What do you want to talk about?");
 		while(myBot.lengthChecker(conversation));
 		{
-			conversation = myBot.processConversation(conversation);
+			conversation = myBot.processCoversation(conversation);
 			conversation = myDisplay.grabInput(conversation);
 		}
 	}

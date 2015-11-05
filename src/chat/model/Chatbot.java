@@ -121,7 +121,7 @@ public class Chatbot
 	
 	public String processCoversation(String currentInput)
 	{
-		String nextConversation = "oh, what else do yo want to talk about?";
+		String nextConversation = "oh, what else do you want to talk about?";
 		int randomTopic = (int) (Math.random() * 5); //Generates a random between 0 and 4.
 		
 		switch (randomTopic) //Case, value, colon
