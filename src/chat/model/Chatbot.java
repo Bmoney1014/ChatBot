@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * Base version of the 2015 Chatbot class. Only sub methods are provided. Students will complete methods as part of the project.
  * @author bhos1889
- * @version 1.1 10/23/15 Completed the lengthCHecker method. Fixed the Constructor and getter for userName
+ * @version 1.1 10/23/15 Completed the lengthChecker method. Fixed the Constructor and getter for userName
  */
 public class Chatbot 
 {
@@ -118,6 +118,50 @@ public class Chatbot
 		}
 		return hasMeme;
 	}
+	
+	public String processCoversation(String currentInput)
+	{
+		String nextConversation = "oh, what else do yo want to talk about?";
+		int randomTopic = (int) (Math.random() * 5); //Generates a random between 0 and 4.
+		
+		switch (randomTopic) //Case, value, colon
+		{
+		case 0:
+			 if(memeChecker(currentInput))
+			 {
+				 nextConversation = "That is a very popular meme this year. What else are you"
+						+  "wanting to talk about?";
+			 }
+			break;
+		case 1:
+			if(politicalTopicChecker(currentInput))
+			{
+				nextConversation = "Are you intereted in politics?";
+			}
+			break;
+		case 2:
+			if(contentChecker(currentInput))
+		{
+			nextConversation = "What else do you want to talk about?";
+		}
+			break;
+		case 3:
+			if(currentInput.length() > 30)
+			{
+				nextConversation = "Anything else you want to talk about?";
+			}
+			break;
+		case 4:
+			nextConversation = "Is that all you want to talk about?";
+			break;
+		default:
+			nextConversation = "The universe has ended sad face";
+			break;
+		}	
+		
+		return nextConversation;
+	}
+	
 	
 	/**
 	 * Returns the username of this Chatbot instance.
