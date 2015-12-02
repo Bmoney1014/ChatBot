@@ -2,6 +2,9 @@ package chat.controller;
 
 import chat.view.ChatView;
 import chat.model.Chatbot;
+import chat.view.ChatFrame;
+import chat.view.ChatPanel;
+import chat.model.Chatbot;
 
 /**
  * 
@@ -30,10 +33,22 @@ public class ChatController
 	private void chat()
 	{
 		String conversation = myDisplay.grabInput("What do you want to talk about?");
-		while(myBot.lengthChecker(conversation));
+		{	
+		conversation = myDisplay.grabInput(conversation);
+		}
+		
+		public String userToChatbot(String userText)
 		{
-			conversation = myBot.processCoversation(conversation);
-			conversation = myDisplay.grabInput(conversation);
+			String response = "";
+			
+			if(myBot.quitChecker(conversation))
+			{
+				shutDown();
+			}
+			
+			response = myBot.processConversation(conversation);
+			
+			return response;
 		}
 	}
 	
@@ -42,20 +57,37 @@ public class ChatController
 		myDisplay.grabInput("Goodbye, " + myBot.getUserName() + "It was fun talking to you.");
 		System.exit(0);
 	}
-	
-	public Chatbot getChatbot()
-	{
-		return myBot;
-	}
-	
-	public ChatView getChatView()
+
+	public ChatView getMyDisplay()
 	{
 		return myDisplay;
 	}
-	
-	public ChatFrame baseFrame()
+
+	public void setMyDisplay(ChatView myDisplay)
 	{
-		return 
+		this.myDisplay = myDisplay;
 	}
+
+	public Chatbot getMyBot()
+	{
+		return myBot;
+	}
+
+	public void setMyBot(Chatbot myBot)
+	{
+		this.myBot = myBot;
+	}
+
+	public ChatFrame getBaseFrame()
+	{
+		return baseFrame;
+	}
+
+	public void setBaseFrame(ChatFrame baseFrame)
+	{
+		this.baseFrame = baseFrame;
+	}
+	
+	
 }
 

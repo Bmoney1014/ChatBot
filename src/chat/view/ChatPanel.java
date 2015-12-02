@@ -3,6 +3,7 @@ package chat.view;
 import javax.swing.*;
 import java.awt.Color;
 import java.awt.event.*;
+import chat.controller.ChatController;
 
 public class ChatPanel
 {
@@ -46,13 +47,30 @@ public class ChatPanel
 		chatArea.setEnabled(false);
 	}
 
-	private void setupLiteners()
+	private void setupListeners()
 	{
-		
+		submitButton.addActionListener(new ActionListener()
+		{
+			public void actionPreformed(ActionEvent click)
+			{
+				/**
+				 * Grab user typed answer
+				 * Display user answer
+				 * Send the text to Chatbot
+				 * Chatbot will process the conversation
+				 * Display the Response
+				 */
+				String userText = typingField.getText();	//Grab user typed answer
+				chatArea.append("\nUser: " + userText);		//display typed answer
+				typingField.setText("");
+				String reponse = baseController.userToChatbot(userText);	//send the tex to chatbot //chatbot will process the conversation
+				chatArea.append("\nChatbot: " + response);		//display the response
+			}
+		});
 	}
 	
 	public JTextField getTextField()
 	{
-		return TextField
+		return TextField;
 	}
 }

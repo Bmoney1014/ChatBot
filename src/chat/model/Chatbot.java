@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * ChatBot Controller Class
  * @author bhos1889
- * @version 2.0 11/30/15 Added a keyboardMashChecker and quitChecker
+ * @version 2.2 12/2/15 Added a way for the chatbot to communicate back to the user.
  */
 public class Chatbot 
 {
@@ -90,6 +90,11 @@ public class Chatbot
 			}
 		}
 		return hasMeme;
+	}
+	
+	public boolean quitChecker(String userQuit)
+	{
+		return true;
 	}
 	
 	public String processCoversation(String currentInput)
