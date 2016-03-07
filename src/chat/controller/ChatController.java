@@ -1,10 +1,9 @@
 package chat.controller;
 
-import chat.view.ChatView;
 import chat.model.Chatbot;
-import chat.view.ChatFrame;
 import chat.view.ChatPanel;
-import chat.model.Chatbot;
+import chat.view.ChatFrame;
+import chat.view.ChatView;
 
 /**
  * 
@@ -37,16 +36,16 @@ public class ChatController
 		conversation = myDisplay.grabInput(conversation);
 		}
 		
-		public String userToChatbot(String userText)
+		String userToChatbot(String userText)
 		{
 			String response = "";
 			
-			if(myBot.quitChecker(conversation))
+			if(myBot.quitChecker(userText))
 			{
 				shutDown();
 			}
 			
-			response = myBot.processConversation(conversation);
+			response = myBot.processConversation(userText);
 			
 			return response;
 		}

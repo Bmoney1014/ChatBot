@@ -3,16 +3,17 @@ package chat.view;
 import javax.swing.JFrame;
 import chat.controller.ChatController;
 
-public class ChatFrame
+public class ChatFrame extends JFrame
 {
 	private ChatController baseController;
 	private ChatPanel basePanel;
 	
 	public ChatFrame(ChatController baseController)
 	{
-		basePanel = new ChatPanel(baseContoller);
+		basePanel = new ChatPanel(baseController);
+		this.baseController = baseController;
 		
-		setupFrame()
+		setupFrame();
 	}
 	
 	private void setupFrame()
@@ -23,25 +24,13 @@ public class ChatFrame
 		this.setVisible(true);
 	}
 
+	private void setContentPane(ChatPanel basePanel2)
+	{
+		
+	}
+
 	public ChatController getBaseController()
 	{
 		return baseController;
 	}
-
-	public void setBaseController(ChatController baseController)
-	{
-		this.baseController = baseController;
-	}
-
-	public ChatPanel getBasePanel()
-	{
-		return basePanel;
-	}
-
-	public void setBasePanel(ChatPanel basePanel)
-	{
-		this.basePanel = basePanel;
-	}
-	
-
 }

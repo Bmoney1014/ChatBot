@@ -18,7 +18,7 @@ public class Chatbot
 	{
 		this.memesList= new ArrayList<String>();
 		this.politicalTopicList = new ArrayList<String>();
-		this.userName = userName;
+		this.setUserName(userName);
 		this.content = "Just do it!";
 		
 		buildMemesList();
@@ -97,7 +97,7 @@ public class Chatbot
 		return true;
 	}
 	
-	public String processCoversation(String currentInput)
+	public String processConversation(String currentInput)
 	{
 		String nextConversation = "oh, what else do you want to talk about?";
 		int randomTopic = (int) (Math.random() * 5); //Generates a random between 0 and 4.
@@ -164,5 +164,10 @@ public class Chatbot
 	public void setContent(String content)
 	{
 		
+	}
+
+	public void setUserName(String userName)
+	{
+		this.userName = userName;
 	}
 }
