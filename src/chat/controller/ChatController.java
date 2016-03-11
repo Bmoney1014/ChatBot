@@ -56,7 +56,19 @@ public class ChatController
 		myDisplay.grabInput("Goodbye, " + myBot.getUserName() + "It was fun talking to you.");
 		System.exit(0);
 	}
+	
+	public void sendTweet(String tweetText)
+	{
+	    chatTwitter.sendTweet(tweetText);
+	}
 
+	public String analyze(String userName)
+	{
+	    String erAnalysis = "Twitter user " + userName + "has....";
+	    
+	    return userAnalysis;
+	}
+	
 	public ChatView getMyDisplay()
 	{
 		return myDisplay;

@@ -14,22 +14,25 @@ public class ChatPanel
 	private JButton submitButton;
 	private JTextArea chatArea;
 	private JTextField typingField;
-	private JLabel promptLabel;
+	private JButton saveButton;
+	private JButton loadButton;
+	private JButton testButton;
+	private JButton tweetButton;
+	private JButton analyzeTweetButton;
 	
 	
 	public ChatPanel(ChatController baseController)
 	{
-		this.baseController = baseController;
 		baseLayout = new SpringLayout();
 		chatArea = new JTextArea(10, 30);
 		typingField = new JTextField(30);
-		promptLabel = new JLabel("Chat with me");
 		submitButton = new JButton("asda");
-		
+		analyzeTweetButton = new JButton("Look at tweets");
 		
 		setupPanel();
 		setupLayout();
 		setupListeners();
+		setupChatPane();
 	}
 	
 	private void setupLayout()
@@ -40,33 +43,36 @@ public class ChatPanel
 	private void setupPanel()
 	{
 		this.setLayout(baseLayout);
-		this.setBackground(Color.PINK);
-		this.add(chatArea);
+		this.add(testButton);
+		this.add(textPane);
+		this.add(analyzeTweetButton);
+		this.add(tweetButton);
+		this.add(saveButton);
+		this.add(loadButton);
 		this.add(typingField);
-		this.add(submitButton);
-		this.add(promptLabel);
-		typingField.setToolTipText("Type here to chat");
-		chatArea.setEnabled(false);
+		this.setPreferredSize(new Dimension(600, 600));
 	}
 
-	private void setupListeners()
+	private void setupChatPane()
 	{
-		submitButton.addActionListener(new ActionListener()
-		{
-			public void actionPreformed(ActionEvent click)
-			{
-				String userText = typingField.getText();
-				chatArea.append("/nUser: " + userText);
-				typingField.setText("");
-				String response = baseController.userToChatbot(userText);
-				chatArea.append("/nChatbot: " + response);
-			}
-		});
-	
+	    
 	}
 	
-	public JTextField getTextField()
+	private void setupListeners()
 	{
-		return typingField;
+		tweetButton.addActionListener(new ActionListener()
+		{
+		    public void actionPreformed(ActionEvent click)
+		    {
+			baseController.sendTweet("what text?");
+		    }
+		});
+	
+		analyzeTwitterButton.addActionListener(new)
+	}
+	
+	public JButton getJButton()
+	{
+		return testButton;
 	}
 }
