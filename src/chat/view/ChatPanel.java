@@ -26,8 +26,11 @@ public class ChatPanel
 		baseLayout = new SpringLayout();
 		chatArea = new JTextArea(10, 30);
 		typingField = new JTextField(30);
-		submitButton = new JButton("asda");
 		analyzeTweetButton = new JButton("Look at tweets");
+		saveButton = new JButton("Save");
+		loadButton = new JButton("Load");
+		testButton = new JButton("Test");
+		tweetButton = new JButton("Tweet");
 		
 		setupPanel();
 		setupLayout();
@@ -69,6 +72,9 @@ public class ChatPanel
 		});
 	
 		analyzeTwitterButton.addActionListener(new)
+		{
+		    public void actionPreformed
+		}
 	}
 	
 	public JButton getJButton()
