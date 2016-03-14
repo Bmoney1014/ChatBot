@@ -4,17 +4,19 @@ import chat.model.Chatbot;
 import chat.view.ChatPanel;
 import chat.view.ChatFrame;
 import chat.view.ChatView;
+import chat.model.CTECTwitter;
 
 /**
  * 
  * @author bhos1889
- * @version 1.1.1 10/21/15 fixed error ;)
+ * @version 2.1.1 3/11/16 Added a twitter addition
  */
 public class ChatController 
 {
 	private ChatView myDisplay;
 	private Chatbot myBot;
 	private ChatFrame baseFrame;
+	private CTECTwitter chatTwitter;
 	
 	public ChatController()
 	{
@@ -64,11 +66,15 @@ public class ChatController
 
 	public String analyze(String userName)
 	{
-	    String erAnalysis = "Twitter user " + userName + "has....";
+	    String userAnalysis = "Twitter user " + userName + "has....";
 	    
 	    return userAnalysis;
 	}
 	
+	public void handleErrors(String error)
+	{
+	    
+	}
 	public ChatView getMyDisplay()
 	{
 		return myDisplay;

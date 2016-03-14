@@ -27,7 +27,7 @@ public class CTECTwitter
 	{
 	    chatbotTwitter.updateStatus("");
 	}
-	catch(twitterException error)
+	catch(TwitterException error)
 	{
 	    baseController.handleErrors(error.getErrorMessage());
 	}
@@ -35,7 +35,7 @@ public class CTECTwitter
 
     public String topResults(List<String> wordList)
     {
-    
+    return null;
     }
     
     public void loadTweets(String twitterHandle) throws TwitterException
@@ -74,6 +74,11 @@ public class CTECTwitter
     {
 	return null;
     }
-
-
+    
+    
+    
+    
+    
+    
+    
 }
