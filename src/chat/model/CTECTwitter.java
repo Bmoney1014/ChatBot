@@ -32,11 +32,6 @@ public class CTECTwitter
 	    baseController.handleErrors(error.getErrorMessage());
 	}
     }
-
-    public String topResults(List<String> wordList)
-    {
-    return null;
-    }
     
     public void loadTweets(String twitterHandle) throws TwitterException
     {
@@ -137,8 +132,34 @@ public class CTECTwitter
 	return boringWords;
     }
     
-    
-    
-    
-    
+    public String topResults(List<String> wordList)
+    {
+	String tweetResults = "";
+	
+	int topWordLocation = 0;
+	int topCount = 0;
+	
+	for(int index = 0; index < wordList.size(); index++)
+	{
+	    int wordUseCount = 1;
+	    
+	    for(int spot = index + 1; spot < wordList.size(); spot++)
+	    {
+		if(wordList.get(index).equals(wordList.get(spot)))
+		{
+		    wordUseCount++;
+		}
+		if(wordUseCount > topCount)
+		{
+		    topCount = wordUseCount;
+		    topWordLocation = index;
+		}
+	    }
+	}
+	
+	tweetResults = "The top word in the tweets was " + wordList.get(topWordLocation) + " and it was used " + topCount + " times!";
+	
+	return tweetResults;
+	
+    }
 }
