@@ -62,17 +62,50 @@ public class CTECTwitter
 
     private String removePunctuation(String currentString)
     {
-	return null;
+	String punctuation = ".,'?!:;\"(){}^[]<>-";
+	
+	String scrubbedString = "";
+	for (int i = 0; i < currentString.length(); i++)
+	{
+	    if (punctuation.indexOf(currentString.charAt(i)) == -1)
+	    {
+		scrubbedString += currentString.charAt(i);
+	    }
+	}
+	return scrubbedString;
     }
 
     private void removeEmptyText()
     {
-	
+	for (int spot = 0; spot < tweetTexts.size(); spot++)
+	{
+	    if (tweetTexts.get(spot).equals(""))
+	    {
+		tweetTexts.remove(spot);
+		spot--;
+	    }
+	}
     }
 
     private List removeCommonEnglishWords(List<String> wordList)
     {
-	return null;
+	String[] boringWords = importWordsToArray();
+	
+	for (int count = 0; count < wordList.size(); count++)
+	{
+	    for (int removeSpot = 0; removeSpot < boringWords.length; removeSpot++)
+	    {
+		if (wordList.get(count).equalsIgnoreCase(boringWords[removeSpot]))
+		{
+		    wordList.remove(count);
+		    count--;
+		    removeSpot = boringWords.length;
+			
+		}
+	    }
+	}
+	
+	return wordList;
     }
     
     
