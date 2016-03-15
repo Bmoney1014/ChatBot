@@ -132,20 +132,20 @@ public class CTECTwitter
 	return boringWords;
     }
     
-    public String topResults(List<String> wordList)
+    public String topResults(List<String> tweetTexts)
     {
 	String tweetResults = "";
 	
 	int topWordLocation = 0;
 	int topCount = 0;
 	
-	for(int index = 0; index < wordList.size(); index++)
+	for(int index = 0; index < tweetTexts.size(); index++)
 	{
 	    int wordUseCount = 1;
 	    
-	    for(int spot = index + 1; spot < wordList.size(); spot++)
+	    for(int spot = index + 1; spot < tweetTexts.size(); spot++)
 	    {
-		if(wordList.get(index).equals(wordList.get(spot)))
+		if(tweetTexts.get(index).equals(tweetTexts.get(spot)))
 		{
 		    wordUseCount++;
 		}
@@ -157,9 +157,8 @@ public class CTECTwitter
 	    }
 	}
 	
-	tweetResults = "The top word in the tweets was " + wordList.get(topWordLocation) + " and it was used " + topCount + " times!";
+	tweetResults = "The top word in the tweets was " + tweetTexts.get(topWordLocation) + " and it was used " + topCount + " times!";
 	
-	return tweetResults;
-	
+	return tweetResults;	
     }
 }
