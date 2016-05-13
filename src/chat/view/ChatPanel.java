@@ -56,6 +56,16 @@ public class ChatPanel
 		this.setPreferredSize(new Dimension(600, 600));
 	}
 
+	private void setupListeners()
+	{
+	    
+	}
+	
+	private void getTextField()
+	{
+	    
+	}
+	
 	private void setupChatPane()
 	{
 	    

@@ -131,7 +131,7 @@ public class CTECTwitter
 	}
 	return boringWords;
     }
-    
+
     public String topResults(List<String> tweetTexts)
     {
 	String tweetResults = "";
@@ -160,5 +160,30 @@ public class CTECTwitter
 	tweetResults = "The top word in the tweets was " + tweetTexts.get(topWordLocation) + " and it was used " + topCount + " times!";
 	
 	return tweetResults;	
+    }
+    
+    public String sampleInvestigation()
+    {
+	String results = "";
+	
+	Query query = new Query("Scoot");
+	query.setCount(200);
+	query.setGeoCode(new GeoLocation(40.587521, -111.869178), 5, Query.KILOMETERS);
+	query.setSince("2016-1-1");
+	try
+	{
+	    QueryResult result = chatbotTwitter.search(query);
+	    results += "Count : " + result.getTweets().size() + "\n";
+	    for (Status tweet : result.getTweets())
+	    {
+		results += "@" + tweet.getUser().getName() + ": " + tweet.getText() + "\n";
+	    }
+	}
+	catch (TwitterException error)
+	{
+	    error.printStackTrace();
+	}
+	
+	return results;
     }
 }
